@@ -11,13 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>分類</td>
-        <td>標題</td>
-        <td class="text-right">200</td>
-        <td class="text-right">100</td>
+      <tr v-for="product in products" :key="product.id">
+        <td>{{ product.category }}</td>
+        <td>{{ product.title }}</td>
+        <td class="text-right">{{ product.origin_price }}</td>
+        <td class="text-right">{{ product.price }}</td>
         <td>
-          <span class="text-success">啟用</span>
+          <span class="text-success" v-if="product.is_enabled">啟用</span>
+          <span class="text-muted" v-else>啟用</span>
         </td>
         <td>
           <div class="btn-group">
